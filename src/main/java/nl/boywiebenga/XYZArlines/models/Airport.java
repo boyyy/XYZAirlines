@@ -1,8 +1,7 @@
 package nl.boywiebenga.XYZArlines.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author Boy Wiebenga
@@ -16,7 +15,8 @@ import javax.persistence.Id;
 public class Airport {
 
     @Id
-    @Column(name = "AIRPORT_ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "AIRPORT_ID", updatable = false, nullable = false)
     private long airportId;
 
     @Column(name = "AIRPORT_NAME")
@@ -27,4 +27,51 @@ public class Airport {
 
     @Column(name = "AIRPORT_COUNTRY")
     private String airportCountry;
+
+    @OneToMany
+    @JoinColumn(name="AIRPLANE_AIRPORT_ID", referencedColumnName="AIRPORT_ID")
+    private List<Airplane> airplanes;
+
+    public Airport() {
+    }
+
+    public long getAirportId() {
+        return airportId;
+    }
+
+    public void setAirportId(long airportId) {
+        this.airportId = airportId;
+    }
+
+    public String getAirportName() {
+        return airportName;
+    }
+
+    public void setAirportName(String airportName) {
+        this.airportName = airportName;
+    }
+
+    public String getAirportCity() {
+        return airportCity;
+    }
+
+    public void setAirportCity(String airportCity) {
+        this.airportCity = airportCity;
+    }
+
+    public String getAirportCountry() {
+        return airportCountry;
+    }
+
+    public void setAirportCountry(String airportCountry) {
+        this.airportCountry = airportCountry;
+    }
+
+    public List<Airplane> getAirplanes() {
+        return airplanes;
+    }
+
+    public void setAirplanes(List<Airplane> airplanes) {
+        this.airplanes = airplanes;
+    }
 }

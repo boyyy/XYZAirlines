@@ -1,0 +1,10 @@
+INSERT INTO Airport VALUES ('1', 'Amsterdam', 'Netherlands', 'Schiphol')
+INSERT INTO Airport VALUES ('2', 'London', 'England', 'Heathrow')
+INSERT INTO Airport VALUES ('3', 'Paris', 'France', 'Charles de Gaulle')
+INSERT INTO Airport VALUES ('4', 'Stockholm', 'Zweden', 'Stockholm Arlanda')
+INSERT INTO Airport VALUES ('5', 'Berlin', 'Germany', 'Flughafen Berlin-Tegel')
+
+INSERT INTO Airplane VALUES ('PL1001', 'BOEING', '5', '5', '787', '1')
+INSERT INTO Airplane VALUES ('PL1002', 'BOEING', '5', '5', '737', '1')
+INSERT INTO Airplane VALUES ('PL1003', 'BOEING', '5', '5', '747', '1')
+INSERT INTO Airplane VALUES ('PL1004', 'AIRBUS', '5', '5', 'A380', '1')

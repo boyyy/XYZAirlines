@@ -18,19 +18,15 @@ import java.util.Optional;
  */
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/airplane")
 public class AirplaneController {
 
     @Autowired
     private AirplaneRepository airplaneRepository;
 
-    public AirplaneController(AirplaneRepository airplaneRepository) {
-        this.airplaneRepository = airplaneRepository;
-    }
-
     /**
      * Default request: get all airplanes
-     * @return airplanes
+     * @return all airplanes
      */
 
     @GetMapping
@@ -39,13 +35,13 @@ public class AirplaneController {
     }
 
     /**
-     * Default request: get all airplanes
-     * @return airplanes
+     * @param airplaneId
+     * @return single airplane
      */
 
     @GetMapping("/{id}")
-    public Airplane getAirplane(@PathVariable String id) {
-        Optional<Airplane> optionalAirplane = airplaneRepository.findById(id);
+    public Airplane getAirplane(@PathVariable String airplaneId) {
+        Optional<Airplane> optionalAirplane = airplaneRepository.findById(airplaneId);
         return optionalAirplane.orElse(null);
     }
 
