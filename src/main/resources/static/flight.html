@@ -48,11 +48,9 @@
                 <h5 class="card-header bg-primary text-light">Flight simulator</h5>
                 <div class="card-body">
                     <h5 class="card-title">Planes available for a flight</h5>
-                    <button type="button" class="btn btn-outline-secondary btn-lg mt-2">PL 1202 (BOEING 737 MAX LG)</button><br/>
-                    <button type="button" class="btn btn-outline-secondary btn-lg mt-2">Secondary</button><br/>
-                    <button type="button" class="btn btn-outline-secondary btn-lg mt-2">Secondary</button><br/>
-                    <button type="button" class="btn btn-outline-secondary btn-lg mt-2">Secondary</button><br/>
-                    <button type="button" class="btn btn-outline-secondary btn-lg mt-2">Secondary</button><br/>
+                    <div id="airplane-list">
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -61,8 +59,17 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="/js/bootstrap.min.js"></script>
+<script>
+    $.get("/api/airplane", function(data, status){
+       $.each(data, function(i, item) {
+        console.log(item);
+        document.getElementById("airplane-list").innerHTML += "<button type='button' class='btn btn-outline-secondary btn-lg mt-2'>" + item.airplaneId + "</button><br/>";
+       });
+    });
+</script>
+
 </body>
 </html>
