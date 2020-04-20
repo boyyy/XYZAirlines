@@ -15,22 +15,22 @@ public class Routes {
 
     @GetMapping(value = "/flight")
     public String flightPage() {
-        return "flight.html";
+        return "/flight.html";
     }
 
     @GetMapping(value = "/airplane")
     public String airplanePage() {
-        return "airplane.html";
+        return "/airplane.html";
     }
 
     @GetMapping(value = "/airport")
     public String airportPage() {
-        return "airport.html";
+        return "/airport.html";
     }
 
     @GetMapping(value = "/airport/details")
     public String airportDetailPage() {
-        return "airportDetails.html";
+        return "/airportDetails.html";
     }
 
 }
